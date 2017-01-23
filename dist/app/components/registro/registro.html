@@ -1,0 +1,49 @@
+<div class="container row registro">
+    <div class="col s12">
+        <div class="col s12 m8 offset-m2  card-panel card-registro">
+          <div class=" card-panel fondo-registro center">
+            <h1>Regístrate</h1>
+          </div>
+          <div class="sin-fondo-registro container">
+            <form id="registro" name="registro"  novalidate ng-submit="$ctrl.registrar()">
+              <div class="col m6">
+                <div ng-click="$ctrl.tryAgain()" class="input-field col s12">
+                  <input ng-click="$ctrl.tryAgain()" id="nombre_registro" type="text" class="form-control validate" ng-model="$ctrl.nombre" required autocomplete="off">
+                  <label for="nombre_registro">Nombre</label>
+                </div>
+              </div>
+              <div class="col m6">
+                <div ng-click="$ctrl.tryAgain()" class="input-field col s12">
+                  <input ng-click="$ctrl.tryAgain()" id="apellido_registro" type="text" class="form-control validate" ng-model="$ctrl.apellido" required autocomplete="off">
+                  <label for="apellido_registro">Apellido</label>
+                </div>
+              </div>
+              <div class="col m12">
+                <div ng-click="$ctrl.tryAgain()" class="input-field col s12">
+                  <input ng-click="$ctrl.tryAgain()" id="email_registro" type="email" class="form-control validate" ng-model="$ctrl.email" required autocomplete="off">
+                  <label for="email_registro" data-error="Correo inválido" >Email</label>
+                </div>
+              </div>
+              <div class="col m12">
+                <div class="input-field col s12">
+                  <input id="password_registro" type="password" class="campo-pass form-control" ng-model="$ctrl.password" required minlength="6" autocomplete="off">
+                  <label for="password_registro" data-error="">password</label>
+                  <span class="leyenda-input">* mínimo 6 caracteres para la contraseña</span>
+                </div>
+              </div>
+              <div class="registro-error center">
+                <span class="error-label" ng-show="$ctrl.invalidEmail">Formato de correo inválido</span>
+                <span class="error-label" ng-show="$ctrl.emailUsed">Ya existe un usuario registrado con ese correo</span>
+              </div>
+
+              <div class="col m10 offset-m1">
+                <button class="col m12  left btn waves-effect waves-light" type="submit" ng-disabled="registro.$invalid"  name="action">Regístrate
+                </button>
+                <a href="#/login" class="atras col m12 center">Atrás</a>
+              </div>
+            </form>
+
+          </div>
+        </div>
+    </div>
+</div>

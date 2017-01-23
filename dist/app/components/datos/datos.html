@@ -1,0 +1,194 @@
+
+<div class="row pop-aviso" ng-if="$ctrl.flagBorrarDireccion">
+    <div class="col s12 m12">
+        <div class="card col m4 offset-m4 tarjeta-aviso">
+            <div class="card-content white">
+                <span>Estás a punto de borrar una de tus direcciones. ¿Estás seguro?</span>
+                <button class="btn" ng-click="$ctrl.borrarDireccion(); $ctrl.flagBorrarDireccion = false">Borrar</button>
+                <button class="btn" ng-click="$ctrl.flagBorrarDireccion = false">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container row misDatos">
+    <div class="col s12">
+        <!-- Tarjeta de invitacion al llenado de datos -->
+        <!--<div class="card col s12 m8 offset-m2 no-datos" ng-show="$ctrl.noprofile">-->
+          <!--<div class="card-content white-text sendNotification" >-->
+            <!--<p class="center">Ingresa los siguientes datos para tener listo tu perfil</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="col s12 m8 offset-m2  card-panel card-datos">
+            <div class="datos-contenido">
+                <h4 class="center">Tus Datos</h4>
+                <div>
+                    <!--Mostrar Nombre y apellido-->
+                    <div class="datosPersonales col s12 m12 card-panel" ng-if="!$ctrl.flagEditarNombre">
+                        <h5 class="center">Nombre y apellido</h5>
+                        <div class="input-field col s12 m6">
+                            <p id="nombre-datos">{{$ctrl.nombre}}</p>
+                            <label class="active" for="nombre-datos" data-error="No puedes dejar este campo vacío">Nombre</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <p id="apellido-datos">{{$ctrl.apellido}}</p>
+                            <label class="active" for="apellido-datos" data-error="No puedes dejar este campo vacío">Apellidos</label>
+                        </div>
+                        <div class="col s12 m12" style="margin-bottom: 20px">
+                            <a href="" class="right" ng-click="$ctrl.flagEditarNombre = true">Editar</a>
+                        </div>
+                    </div>
+                    <!--Editar nombre y apellido-->
+                    <div class="datosPersonales col s12 m12 card-panel" ng-if="$ctrl.flagEditarNombre">
+                        <h5 class="center">Editar nombre y apellido</h5>
+                        <form id="datos" name="datos"  novalidate>
+                            <div class="input-field col s12 m6">
+                                <input id="nombre-editar-datos" type="text" class="form-control" ng-model="$ctrl.nombre" required>
+                                <label class="active" for="nombre-editar-datos" data-error="No puedes dejar este campo vacío">Nombre</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input id="apellido-editar-datos" type="text" class="form-control" ng-model="$ctrl.apellido" required>
+                                <label class="active" for="apellido-editar-datos" data-error="No puedes dejar este campo vacío">Apellidos</label>
+                            </div>
+                            <div class="col s12 m12" style="margin-bottom: 20px">
+                                <a href="" class="right" ng-click="$ctrl.editarNombre(); $ctrl.flagEditarNombre = false">Guardar</a>
+                                <a href="" class="right col pull-m1 red-text" ng-click="$ctrl.flagEditarNombre = false">Atrás</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="card-panel" style="display: inline-block;">
+                        <h5 class="center" style="margin-top: 0px;">Tus direcciones</h5>
+                        <div class="row">
+                            <div ng-if="$ctrl.flagMostrarDireccion">
+                                <div ng-if="$ctrl.flagDireccionExistente">
+                                    <div class="col s12 m12" ng-repeat="direccion in $ctrl.direccionesArray">
+                                        <div class="col m12 card hoverable card-mostrar-direcciones" id="{{direccion.code}}2">
+                                            <a href="">
+                                                <div class="card-content datos-mostrar-direcciones black-text" id="{{direccion.code}}">
+                                                    <p class="center">{{direccion.calle}} {{direccion.numExt}}, {{direccion.colonia}}, {{direccion.delegacion}} </p>
+                                                </div>
+                                            </a>
+                                            <div class="botones-mostrar-direcciones">
+                                                <a href="" class=" right red-text col m2" ng-click="$ctrl.confirmarBorrarDireccion(direccion)">Borrar</a>
+                                                <a href="" class="right blue-text text-darken-2 col m2" ng-click="$ctrl.editarDireccion(direccion)">Editar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="" ng-click="$ctrl.flagNuevaDireccion = true; $ctrl.flagMostrarDireccion = false; $ctrl.limpiarFormulario();">Agregar nueva direccion</a>
+                                </div>
+
+
+                                <!--Aviso no hay direcciones-->
+                                <div ng-if="!$ctrl.flagDireccionExistente">
+                                    <a href="" ng-click="$ctrl.flagNuevaDireccion = true; $ctrl.flagDireccionExistente = true">
+                                        <h5 class="center">Agrega una dirección para poder reservar un servicio</h5>
+                                    </a>
+                                    <div class="col m12 center">
+                                        <button class="btn" ng-click="$ctrl.flagNuevaDireccion = true; $ctrl.flagMostrarDireccion = false">Agregar dirección</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!--Agregar Nueva Direccion-->
+                            <div ng-if="$ctrl.flagNuevaDireccion">
+                                <form id="formNuevaDireccion" name="formNuevaDireccion" novalidate ng-submit="$ctrl.nuevaDireccion()">
+                                    <h5 class="col s12 m12 purple-text lighten-1 center" ng-if="!$ctrl.flagTieneDireccion">Ingresa una direccion</h5>
+                                    <div class="input-field col s12 m6">
+                                        <input type="number" min="1000" max="16910" maxlength="6" id="agendadoNuevaCp" class="form-control validate" ng-model="$ctrl.cp" ng-change="$ctrl.testCp($ctrl.cp)">
+                                        <label for="agendadoNuevaCp" data-error="Ingresa un código postal válido">Código Postal</label>
+                                    </div>
+                                    <div class="input-field col m6">
+                                        <input value="chales" type="text" id="agendadoNuevaColonia" list="cityname" ng-model="$ctrl.colonia" autocomplete="off">
+                                        <datalist id="cityname" >
+                                            <div ng-repeat="colonia in $ctrl.coloniaArray">
+                                                <option value="{{colonia}}">
+                                            </div>
+                                        </datalist>
+                                        <label for="agendadoNuevaColonia" class="active">Colonia</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <p id="agendadoNuevaDelegacion" style="border-bottom: solid 1px #9e9e9e;padding-bottom: 8px;">{{$ctrl.delegacion}}
+                                            <br></p>
+                                        <label for="agendadoNuevaDelegacion" data-error="No puedes dejar este campo vacío" class="active">Delegación</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="agendadoNuevaCalle" type="text" class="form-control validate" ng-model="$ctrl.calle" required>
+                                        <label for="agendadoNuevaCalle"data-error="No puedes dejar este campo vacío">Calle</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="agendadoNuevaExterior" type="text" class="form-control validate" ng-model="$ctrl.numExt" required>
+                                        <label for="agendadoNuevaExterior" data-error="No puedes dejar este campo vacío">Número ext</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 ">
+                                        <input id="agendadoNuevaInterior" type="text" class="form-control validate" ng-model="$ctrl.numInt">
+                                        <label for="agendadoNuevaInterior" data-error="No puedes dejar este campo vacío">Número int</label>
+                                    </div>
+                                    <h6 class="col s12 m12  grey-text">¿Entre qué calles se encuentra?</h6>
+                                    <div class="input-field col s12 m12">
+                                        <input id="agendadoNuevaCalle1" type="text" class="form-control validate" ng-model="$ctrl.calle1">
+                                        <label for="agendadoNuevaCalle1" data-error="No puedes dejar este campo vacío"></label>
+                                    </div>
+                                    <div>
+                                        <button class="btn" type="submit" ng-disabled="formNuevaDireccion.$invalid">Guardar</button>
+                                        <a href="" ng-click="$ctrl.flagMostrarDireccion = true; $ctrl.flagNuevaDireccion = false; $ctrl.limpiarFormulario()">Atrás</a>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <div ng-if="$ctrl.flagEditar">
+                                <form id="formPrimerDireccion" name="formPrimerDireccion" novalidate ng-submit="$ctrl.guardarEditarDireccion()">
+                                    <h5 class="col m12 purple-text lighten-1 center">Edita tu dirección</h5>
+                                    <div class="input-field col s12 m6">
+                                        <input type="number" min="1000" max="16910" maxlength="6" id="agendado-editar-cp" class="form-control validate" ng-model="$ctrl.cp" ng-change="$ctrl.testCp($ctrl.cp)">
+                                        <label for="agendado-editar-cp" data-error="Ingresa un código postal válido" class="active">Código Postal</label>
+                                    </div>
+                                    <div class="input-field col m6">
+                                        <input value="" type="text" id="agendado-editar-colonia" list="cityname1" ng-model="$ctrl.colonia" autocomplete="off">
+                                        <datalist id="cityname1" >
+                                            <div ng-repeat="colonia in $ctrl.coloniaArray">
+                                                <option value="{{colonia}}">
+                                            </div>
+                                        </datalist>
+                                        <label for="agendado-editar-colonia" class="active">Colonia</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <p id="agendado-editar-delegacion" style="border-bottom: solid 1px #9e9e9e;padding-bottom: 8px;">{{$ctrl.delegacion}}</p>
+                                        <label for="agendado-editar-delegacion" data-error="No puedes dejar este campo vacío" class="active">Delegación</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="agendado-editar-calle" type="text" class="form-control validate" ng-model="$ctrl.calle" required>
+                                        <label for="agendado-editar-calle"data-error="No puedes dejar este campo vacío" class="active">Calle</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="agendado-editar-exterior" type="text" class="form-control validate" ng-model="$ctrl.numExt" required>
+                                        <label for="agendado-editar-exterior" data-error="No puedes dejar este campo vacío" class="active">Número ext</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 ">
+                                        <input id="agendado-editar-interior" type="text" class="form-control validate" ng-model="$ctrl.numInt">
+                                        <label for="agendado-editar-interior" data-error="No puedes dejar este campo vacío" class="active">Número int</label>
+                                    </div>
+                                    <h6 class="col s12 m12  grey-text">¿Entre qué calles se encuentra?</h6>
+                                    <div class="input-field col s12 m12">
+                                        <input id="agendado-editar-calle1" type="text" class="form-control validate" ng-model="$ctrl.calle1">
+                                        <label for="agendado-editar-calle1" data-error="No puedes dejar este campo vacío" class="active"></label>
+                                    </div>
+                                    <button class="btn" type="submit" ng-disabled="formPrimerDireccion.$invalid">Guardar</button>
+                                    <a href="" ng-click="$ctrl.flagEditar = false; $ctrl.flagMostrarDireccion = true; $ctrl.limpiarFormulario(); $ctrl.flagDireccionLocked = false">Atras</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <a href="#/" class="btn-flat">Atras</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

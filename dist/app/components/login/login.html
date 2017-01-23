@@ -1,0 +1,89 @@
+
+<!-- CONTENEDOR DEL COMPONENTE -->
+<div class="row login container">
+  <div class="col s12 m5">
+
+
+    <!-- MENSAJE DE ENVÍO DE RECUPERACION DE PASSWORD -->
+    <div class="card">
+      <div class="card-content white-text sendNotification" ng-show="$ctrl.sended">
+        <p>Se ha enviado un correo a la dirección que registraste para recuperar tu contraseña</p>
+      </div>
+    </div>
+    <!-- INICIO DE SESION -->
+    <div class="card-panel hoverable" ng-hide="$ctrl.sendPassword">
+        <div class="center">
+          <h5>Iniciar sesión</h5>
+        </div>
+        <div ng-click="$ctrl.sended = false" class="container">
+          <div class="login-form">
+              <form id="logIn" name="logIn" novalidate ng-submit="$ctrl.logIn()">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input ng-click="$ctrl.tryAgain()" id="email" type="email" class="form-control validate" ng-model="$ctrl.email" required autocomplete="off">
+                      <label for="email" data-error="Correo invalido">Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input ng-click="$ctrl.tryAgain()" id="password" type="password" class="form-control validate" ng-model="$ctrl.password" required autocomplete="off">
+                      <label for="password">Contraseña</label>
+                    </div>
+                  </div>
+                      <!-- Aviso de error y boton login -->
+                <div class=" center registrate-login">
+                  <div class="card">
+                    <div class="datos-invalidos center card-content white-text" ng-show="$ctrl.usuarioInvalido">
+                      <p class="center">No pudimos encontrar esa combinación de usuario y contraseña. intentalo de nuevo</p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="datos-invalidos card-content white-text" ng-show="$ctrl.correoInvalido">
+                      <p class="center">Formato de correo inválido</p>
+                    </div>
+                  </div>
+                  <button class="btn waves-effect waves-light" type="submit" ng-disabled="logIn.$invalid"  name="action">Inicia sesion
+                  </button>
+                      <!-- Recupuerar contraseña y registro -->
+                  <div class=" center olvidaste">
+                    <a href="" ng-click="$ctrl.olvidastePass()">¿Olvidaste tu contraseña?</a>
+                    <div>
+                      <label class="col s12 m12">¿Aun no tienes cuenta?</label>
+                      <a href="#/registro">Registrate Aquí</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+    </div>
+    <!-- RECUPERAR CONTRASEÑA -->
+    <div class="card-panel hoverable sendPassword" ng-show="$ctrl.sendPassword">
+      <div class="container">
+        <div class="card">
+          <div class="datos-invalidos card-content white-text" ng-show="$ctrl.userNotFound">
+            <p class="center">No hay un usuario registrado con ese correo electónico</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="datos-invalidos card-content white-text" ng-show="$ctrl.invalidEmail">
+            <p class="center">Formato de correo inválido</p>
+          </div>
+        </div>
+        <form name="sendPassword" id="sendPassword" novalidate>
+          <div ng-click="$ctrl.tryAgainRecuperar()" class="col s12 m12">
+            <div class="input-field ">
+              <input id="emailRecover" type="email" class="form-control validate" ng-model="$ctrl.emailRecover" required autocomplete="off">
+              <label for="email" data-error="Correo invalido">Email</label>
+            </div>
+          </div>
+          <div class="center">
+            <button class="col m12 btn waves-effect waves-light btn-recuperar" type="submit" ng-disabled="sendPassword.$invalid" ng-click="$ctrl.sendPasswordReset()" name="action">Recuperar contraseña
+            </button>
+            <a href="" ng-click="$ctrl.regresarLogin()" class="atras">Atrás</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

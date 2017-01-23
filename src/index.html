@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="jelpMi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href="assets/img/logomin.png">
+    <title>Jelpmi!</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/styles/css/styles.css">
+    <!--HTML5  MODE ROUTE-->
+    <!--<base href="/">-->
+</head>
+<body>
+    <header>
+        <nav-bar></nav-bar>
+    </header>
+    <main>
+      <ng-view></ng-view>
+    </main>
+
+    <script src="modules/modules.js"></script>
+    <!-- Materialize -->
+    <!-- <script src="../node_modules/materialize-clockpicker/dist/js/materialize.clockpicker.js"></script> -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <!-- Rutas, servicios, app -->
+    <script src="app/app.js"></script>
+    <script src="app/services/auth.js"></script>
+    <script src="app/routes/routes.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <!--Stripe-->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script type="text/javascript">
+    Stripe.setPublishableKey('pk_WNHwXkvoGS6Ix3MMcUkTAocP1eI8N');
+    </script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyABeo7ue8sziCxEP5pLLwusVaq-VSlNnTM",
+        authDomain: "jelpmi-produccion.firebaseapp.com",
+        databaseURL: "https://jelpmi-produccion.firebaseio.com",
+        storageBucket: "jelpmi-produccion.appspot.com",
+        messagingSenderId: "154696352001"
+      };
+      firebase.initializeApp(config);
+    </script>
+</body>
+</html>

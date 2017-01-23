@@ -1,0 +1,25 @@
+<!-- ng-init sustituye al window.onload -->
+<div>
+  <nav>
+    <div class="nav-wrapper row">
+      <a href="#/" class="brand-logo"><img src="assets/img/JelpMi-03.png" alt=""></a>
+      <div  class="nombre-nav " ng-if="$ctrl.user.user" style="margin-left: -4%">
+           <span id="nombreNav" ng-cloak class="center">Hola {{$ctrl.name}}</span>
+      </div>
+
+      <ul class="right hide-on-med-and-down" ng-if="$ctrl.user.user">
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/promos">Promociones</a></li>
+          <li ng-hide="$ctrl.user.user"><a href="#/registro">Registro</a></li>
+          <li><a ng-click="$ctrl.logOut()">Cerrar sesión</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/promos">Promociones</a></li>
+          <li ng-hide="$ctrl.user.user"><a href="#/registro">Registro</a></li>        
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>

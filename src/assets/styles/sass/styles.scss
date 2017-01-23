@@ -1,0 +1,931 @@
+$purple-color: #764494;
+$blue-material-color: #039be5;
+$black-color: #444444;
+$white-color: #FFFFFF;
+$blue-color: #74b6c9;
+$blue-link-color: #039be5;
+$pink-color: #ec6978;
+$fuctsia-color: #cc368b;
+$banana-color: #fed373;
+$orange-color: #f0864d;
+$facebook-color: rgb(59,89,152);
+$green: rgb(107,177,62);
+$grey: #aaaaaa;
+$purple-color-80: rgba(118,68,148,.85);
+
+$error-color: #e57373;
+
+// 0 FUENTES
+// 1 NAVBAR
+// 2 REGISTRO
+// 3 PROMOCIONES
+// 4 HOME
+// 5 FOOTER
+// 6 LOGIN
+// 7 AGENDADO
+// 8 EXPRES
+// 9 DATOS
+
+// 0 FUENTES
+
+  @font-face {
+    font-family: "JelpMi";
+    src: url('../../fonts/gotham_rounded/GothamRoundedLight_21020.ttf');
+}
+* {
+  font-family: JelpMi;
+}
+//barrita del overflow: scroll
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+// 1 Navbar
+
+.nav-wrapper {
+  background-color: $purple-color;
+  overflow: hidden;
+    .button-collapse {
+        color: $purple-color;
+        margin-left: 1%;
+    }
+
+    a {
+        img{
+            width: 200px;
+            margin-top: -63px;
+        }
+    }
+    .nombre-nav{
+      position: absolute;
+      top: 0px;
+      left: 42%;
+      font-size: 1.5em;
+      color: $white-color;
+    }
+    ul{
+        margin-right: 5%;
+        a{
+            color: $white-color;
+        }
+    }
+}
+
+
+// 2 Registro
+
+.registro {
+  .card-registro {
+    height: 500px;
+    padding: 0px;
+    margin-top: 10%;
+    .fondo-registro {
+      height: 15%;
+      margin-top: 0px;
+      background-color: $purple-color;
+      h1 {
+        color: $white-color;
+        margin-top: -15px;
+      }
+    }
+    .sin-fondo-registro {
+      height: 80%;
+      .btn {
+        margin-top: 20px;
+      }
+      .atras{
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
+      .campo-pass{
+        margin-bottom: 0px;
+      }
+      .leyenda-input{
+        font-size: .8em;
+        color: $purple-color;
+      }
+
+      .error-label{
+          color: red;
+          font-size: 1.2em
+        }
+      .input-field input[type=password]:focus + label {
+        color: $purple-color;
+      }
+      .input-field input[type=password]:focus {
+        border-bottom: 1px solid $purple-color;
+        box-shadow: 0 1px 0 0 $purple-color;
+      }
+      .input-field input[type=email]:focus + label {
+        color: $purple-color;
+      }
+      .input-field input[type=email]:focus {
+        border-bottom: 1px solid $purple-color;
+        box-shadow: 0 1px 0 0 $purple-color;
+      }
+    }
+  }
+}
+
+// 3 promociones
+
+    .card-promo{
+        .input-field input[type=text]:focus + label {
+        color: $purple-color;
+        }
+        .input-field input[type=text]:focus {
+             border-bottom: 1px solid $purple-color;
+             box-shadow: 0 1px 0 0 $purple-color;
+        }
+        img {
+            transform: matrix(1.5, 0, 0, 1.5, 55, 50);
+        }
+        .contenido-promo {
+            margin-top: 5%;
+        a {
+            background-color: $pink-color;
+            margin: 8% 10%;
+        }
+        }
+    }
+
+
+// 4 Home
+
+.home {
+
+    // Para resoluciones entre 441px y 600px (pantallas mobile grandes)
+    @media only screen and (min-width: 441px) and (max-width: 600px) {
+      div.col.s12.m12.card-panel.contenido{
+          height: 930px;
+        }
+        div.card-panel.col.s12.m10.offset-m1.servicio {
+            height: 460px;
+            box-shadow: none;
+
+            .agendado {
+              box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              border-right: none;
+                // background-color: $purple-color;
+                //     border-radius: 1%;
+                //     p {
+                //         color: $white-color;
+                //         transition: all 1s ease;
+                //     }
+                //     span {
+                //         color: $white-color;
+                //         transition: all 1s ease;
+                //     }
+                    .card-action {
+                    a {
+                        font-size: 1.5em;
+                        // color: $banana-color;
+                    }
+                  }
+            }
+            .express {
+              box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+                margin-top: 10px;
+                // background-color: $purple-color;
+                    border-radius: 1%;
+                    img{
+                        max-height: 150px;
+                        margin-top: 0px;
+                        max-width: 110px;
+                    }
+                    p {
+                        // color: $white-color;
+                        // transition: all 1s ease;
+                        margin-left: 10%;
+                    }
+                    span {
+                        // color: $white-color;
+                        // transition: all 1s ease;
+                    }
+                    .card-action {
+                    a {
+                        font-size: 1.5em;
+                        // color: $banana-color;
+                    }
+                }
+            }
+        }
+        .otros {
+          img {
+            margin-top: -15px;
+          }
+        }
+        .promociones {
+          img {
+              max-height: 110px;
+              max-width: 122px;
+          }
+        }
+        div.col.s12.m12.offset-m1.otros{
+          .mis-datos {
+            margin-left: -1.5%
+          }
+        }
+    }
+    // para resoluciones entre 601 y 718 (version desktop con reducciones)
+    @media only screen and (min-width: 601px) and (max-width: 718px){
+      div.card-panel.col.s12.m10.offset-m1.servicio {
+            .agendado {
+                p {
+                  font-size: .9rem;
+                }
+                .card-action {
+                  margin-top: 15px;
+                }
+            }
+            .express {
+              p {
+                  font-size: .9rem;
+                }
+                .card-action {
+                  margin-top: 15px;
+                }
+            }
+        }
+        .otros {
+          img {
+            margin-top: -15px;
+          }
+        }
+        .promociones{
+          p {
+            font-size: .9rem;
+          }
+        }
+    }
+    // Para mobile
+    @media only screen and (max-width : 440px) {
+        div.col.s12.m12.card-panel.contenido{
+          height: 930px;
+        }
+        div.card-panel.col.s12.m10.offset-m1.servicio {
+            height: 460px;
+            box-shadow: none;
+            .agendado {
+              box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              border-right: none;
+                // background-color: $purple-color;
+                //     border-radius: 1%;
+                //     p {
+                //         color: $white-color;
+                //         transition: all 1s ease;
+                //     }
+                //     span {
+                //         color: $white-color;
+                //         transition: all 1s ease;
+                //     }
+                    .card-action {
+                    a {
+                        font-size: 1.5em;
+                        // color: $banana-color;
+                    }
+                  }
+            }
+            .express {
+              box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+                margin-top: 10px;
+                // background-color: $purple-color;
+                    border-radius: 1%;
+                    img{
+                        max-height: 150px;
+                        margin-top: 0px;
+                        max-width: 110px;
+                    }
+                    p {
+                        // color: $white-color;
+                        // transition: all 1s ease;
+                        margin-left: 10%;
+                    }
+                    span {
+                        // color: $white-color;
+                        // transition: all 1s ease;
+                    }
+                    .card-action {
+                    a {
+                        font-size: 1.5em;
+                        // color: $banana-color;
+                    }
+                }
+            }
+        }
+        div.col.s12.m12.offset-m1.otros{
+          .mis-datos {
+            margin-left: -1.5%
+          }
+        }
+        .otros {
+          img {
+            margin-top: -15px;
+          }
+        }
+    }
+    // Desktop
+    margin-top: 20px;
+    .contenido {
+        background-color: $white-color;
+        height: 560px;
+        padding: 0px;
+        .fondo {
+            height: 40%;
+            background-color: $purple-color-80;
+          //tarjeta que muestra los servicios que tienes reservados
+          .servicio-existente{
+            .servicio{
+              .card-servicio-existente{
+                span{
+                  text-decoration: none;
+                  color: $blue-link-color;
+                }
+                p{
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+            .servicio {
+                height: 260px;
+                margin-top: 50px;
+                .agendado {
+                    transition: all 1.2s ease;
+                    border-right: solid 1px;
+                    &:hover {
+                        background-color: $purple-color;
+                        border-radius: 1%;
+                        p {
+                            color: $white-color;
+                            transition: all 1s ease;
+                        }
+                        span {
+                            color: $white-color;
+                            transition: all 1s ease;
+                        }
+                        .card-action {
+                            a {
+                            font-size: 1.5em;
+                            color: $banana-color;
+                            }
+                        }
+                    }
+                    a {
+                        transition: all 1s ease;
+
+                    }
+                    height: 200px;
+                    p {
+                        height: 100px;
+                        color: $black-color;
+                        transition: all 1s ease;
+                    }
+                    span {
+                        color: $blue-material-color;
+                        transition: all 1s ease;
+                    }
+                    img {
+                        transform: translateY(10px);
+
+                    }
+                }
+                .express {
+                    height: 200px;
+                    transition: all 1s ease;
+                    &:hover {
+                        background-color: $purple-color;
+                        border-radius: 1%;
+                        p {
+                            color: $white-color;
+                            transition: all 1s ease;
+                        }
+                        span {
+                            color: $white-color;
+                            transition: all 1s ease;
+                        }
+                        .card-action {
+                            a {
+                            font-size: 1.5em;
+                            color: $banana-color;
+                            }
+                        }
+                    }
+                    a {
+                        transition: all 1s ease;
+                    }
+                    span {
+                        color: $blue-material-color;
+                    }
+                    p {
+                        color: $black-color;
+                        height: 100px;
+                    }
+                    @media only screen and (min-width : 1036px) {
+                        img {
+                            height: 112px;
+                            width: 86px;
+                        }
+                    }
+                }
+                h5 {
+                    text-align: center;
+                }
+                span {
+                    text-align: center;
+                    text-decoration: underline;
+                    font-size: 1.5em
+                }
+            }
+            .otros {
+                height: 200px;
+                .promociones {
+                    span {
+                        margin-top: 10px;
+                        font-size: 1.5em
+                    }
+                    @media only screen and (min-width : 1290px) {
+                        img {
+                          max-height: 100px;
+                          max-width: 145px;
+                          margin-top: -10px;
+                        }
+                    }
+                    p {
+                        color: $black-color;
+                    }
+                    height: 140px;
+                    margin-left: -1.2%;
+
+                }
+                .mis-datos {
+                    span {
+                        margin-top: 10px;
+                        font-size: 1.5em
+                    }
+                    img {
+                      margin-top: -10px;
+                    }
+                    @media only screen and (min-width : 1290px) {
+                        img {
+                          max-height: 100px;
+                          max-width: 145px;
+                          margin-top: -10px;
+                        }
+                    }
+                    p {
+                        color: $black-color;
+                    }
+                    height: 140px;
+                    margin-left: 2%;
+                }
+            }
+        }
+        .sin-fondo {
+            height: 60%;
+        }
+    }
+}
+
+
+
+// 5 footer
+
+
+footer.page-footer{
+        background-color: $purple-color;
+        overflow: hidden;
+        margin-top: 10px;
+        height: 85px;
+    }
+.page-footer{
+    .conjunto {
+
+        margin-top: -25px;
+    } 
+    .terminos {
+        margin-top: 10px;
+        p {
+            height: 5px;
+            a {
+                color: $white-color;
+            }
+        }
+    }
+    .redes {
+        height: 40px;
+        margin-bottom: 0px;
+        img{
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin-left: 3%;
+        }
+    }
+    .apps {
+        height: 40px;
+        overflow: hidden;
+        margin-top: -3px;
+         img{
+            width: 80px;
+            float: left;
+            transform: translateY(-20px);
+            padding-bottom: 20px;
+            margin: 0px 5px;
+        } 
+    }
+}
+// Fondo y footer adhesivo
+body {
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url('../../img/fondo_jelpmi.png');
+}
+main {
+    flex: 1 0 auto;
+}
+
+
+
+// 6 login
+
+.login {
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 0px;
+    @media only screen and (min-width : 600px) {
+        div.col.s12.m5 {
+            margin: 0px 30%;
+        }
+  
+    }
+    .sendNotification{
+      background-color: $purple-color;
+      margin-bottom: -55px;
+    }
+    .card-panel{
+        border-radius:1%;
+        border:solid 1px $grey;
+        margin-top: 15%;
+        form{
+          .datos-invalidos{
+            background-color: $error-color;
+            border-radius: 2%
+          } 
+        }
+        
+        // Color del input
+        .input-field input[type=password]:focus + label {
+        color: $purple-color;
+        }
+        .input-field input[type=password]:focus {
+             border-bottom: 1px solid $purple-color;
+             box-shadow: 0 1px 0 0 $purple-color;
+        }
+        .input-field input[type=email]:focus + label {
+        color: $purple-color;
+        }
+        .input-field input[type=email]:focus {
+             border-bottom: 1px solid $purple-color;
+             box-shadow: 0 1px 0 0 $purple-color;
+        }
+
+
+        .olvidaste {
+            margin-top: 20px;
+            padding-bottom: 10px;
+            font-size: 2rem;
+            div{
+              label{
+                font-size: .6em;
+                margin-bottom: -15px;
+              }
+              a{
+                margin-top: 0px;
+                font-size: .7em;
+              }
+            }
+            a{
+              font-size: .6em;
+            }
+        }
+    }
+    .sesion-btn {
+        background-color: $green;
+        margin-top: 15px;
+    }
+    .facebook-btn {
+        background-color: $facebook-color;
+        padding-left: 10px;
+        padding-right: 7px;
+    }
+    .sendPassword {
+
+      .datos-invalidos {
+        background-color: $error-color;
+      }
+      .userNotFound {
+        margin-bottom: 40px;
+        height: 50px
+      }
+      .btn-recuperar{
+        margin-bottom: 15px;
+      }
+      .atras{
+        margin-top: 20px;
+        font-size: 1.2em;
+      }
+
+      
+    }
+}
+
+
+#depasucio_2001{
+  width: 100%;
+}
+// 7 Agendado
+  .pop-aviso{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    .tarjeta-aviso{
+      margin-top: 22%;
+      button{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+.agendado {
+  .fondo-popup{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    top: 0;
+    left: 0;
+  }
+  .cont-adicionales{
+    .pop-adicionales{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      .adicionales-item{
+        &:first-child{
+          width: 100%;
+        }
+      }
+      .btn {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  //Tarjeta de ultimo paso para agendar servicio
+  .segundo-paso{
+    .adicionales-block{
+      .adicionales-item{
+        img{
+          &:hover{
+            box-shadow: -9px 11px 17px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+          }
+        }
+        &:first-child{
+          width: 100%;
+        }
+      }
+    }
+    .form-pago{
+      h5{
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  // popup de aviso "en tres horas..."
+
+  .agendado-contenido{
+    .agregar-primera-direccion{
+      .agendado-detalles{
+
+      }
+      .agendado-btn{
+        margin-top: 60px;
+      }
+      .adicionales-btn{
+        position: relative;
+        top: 20px;
+      }
+    }
+    // Color de los inputs
+    .input-field input[type=text]:focus {
+             border-bottom: 1px solid $purple-color;
+             box-shadow: 0 1px 0 0 $purple-color;
+        }
+    .input-field input[type=text]:focus + label {
+        color: $purple-color;
+        }
+    .boton-promocional-agendado{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .agendado-btn {
+      margin-bottom: 30px;
+    }
+    
+
+    // Tarjeta que muestra las direcciones
+    .card-mostrar-direcciones{
+      .datos-mostrar-direcciones{
+        padding-top: 10px;
+        padding-bottom: 17px;
+        margin-bottom: 0px;
+        &:active{
+          background-color: red;
+        }
+        p{
+
+        }
+      }
+      .botones-mostrar-direcciones{
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        a{
+          z-index: 100;
+          margin-top: -15px;
+          font-size: .8rem;
+          &:hover{
+            font-size: 1rem;
+            transition: all .2s ease;
+            transform: translate(0px, -3px);
+          }
+        }
+      }
+      
+    }
+  }
+  .agendado-btn{
+    .boton-codigo-promocion{
+      font-size: .5rem;
+      position: absolute;
+    }
+  }
+  .total-servicio{
+    position: fixed;
+    top: 10%;
+    right: .5%;
+    width:200px;
+    .total-mobile {
+      display: none;
+    }
+    @media only screen and (max-width: 992px){
+      top: 80%;
+      left: 80%;
+      z-index: 2;
+      .total-desktop {
+        display: none;
+      }
+      .total-mobile{
+        display: block;
+      }
+      p {
+        display: none;
+      }
+    }
+    @media only screen and (max-width: 600px){
+      .card-content {
+        height: 85px;
+        .total-mobile {
+          margin-top: -23px;
+          margin-bottom: -15px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// 8 exprés
+.express{
+  .express-contenido{
+    .collapsible.popout > li{
+      div.collapsible-header{
+        .cerrar-adicionales{
+          display: none
+        }
+      }
+    }
+    .collapsible.popout > li.active {
+      background-color: white;
+      position: absolute;
+      z-index: 2;
+      top: 5%;
+      left: 25%;
+      width: 50%;
+      div.collapsible-header{
+        .abrir-adicionales{
+          display: none;
+        }
+        .cerrar-adicionales{
+          display: block;
+        }
+      }
+    }
+    .boton-promocional-express{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .express-btn{
+      margin-bottom: 30px;
+    }
+  }
+  .total-servicio{
+    position: fixed;
+    top: 10%;
+    left: 76%;
+  }
+}
+
+
+
+// 9 DATOS
+
+.misDatos{
+
+  .no-datos{
+    background-color: $purple-color;
+  }
+  .btn-guardar{
+    margin-bottom: 30px;
+  }
+  .nota-cumple{
+    color: $purple-color;
+    font-size: .9em;
+    margin-top: -15px;
+  }
+
+  .card-datos-mostrar{
+    .personales-mostrar{
+      height: 75px;
+    }
+    .personales-editar{
+      padding-top: 0px;
+      .btn-edit-basicos{
+        margin-top: 18px;
+      }
+    }
+
+
+    .direccion-mostrar{
+      height: 205px;
+    }
+    .direccion-editar{
+      padding-top: 0px;
+    }
+  }
+}
+
+#toast-container {
+  top: 35%;
+  right: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

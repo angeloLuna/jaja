@@ -1,0 +1,21 @@
+<div class="container row promociones">
+    <div class="col s12">
+        <div class="col s12 m10 offset-m1  card-panel card-promo">
+            <h4 class="center">Promociones</h4>
+            <div class="col m5">
+                <img class="col m8" src="assets/img/regalo.png" alt="">
+            </div>
+
+
+            <div class="col s12 m7 contenido-promo">
+                <form id="promociones" name="promociones" novalidate ng-submit="$ctrl.promociones()">
+                    <div class="input-field col s12 m10">
+                        <input id="promo" type="text" class="validate" ng-model="$ctrl.promoCode" required>
+                    </div>
+                    <button class="waves-effect waves-light btn hoverable" type="submit" ng-disabled="promociones.$invalid" name="action">Aplicar descuento</button>
+                </form>
+                <a href="#/" class="waves-effect waves-light btn hoverable" ng-model="$ctrl.desc">Atras</a>
+            </div>
+        </div>
+    </div>
+</div>

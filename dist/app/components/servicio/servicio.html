@@ -1,0 +1,78 @@
+<div class="container row servicio">
+    <div class="col s12">
+        <div class="col s12 m8 offset-m2  card-panel card-servicio">
+            <div class="servicio-contenido">
+              <h4 class="center">¡Cuentanos más de tu servicio!</h4>
+              <div class="elemento-servicio col s12 m12">
+                  <span class="col s12 m12">¿Cada cuándo lo necesitas?</span>
+                  <div class="respuesta ">
+                        <form action="#">
+                          <p class="col s12 m3 ">
+                            <input name="servicio" type="radio" id="semanal" />
+                            <label for="semanal">Semanal</label>
+                          </p>
+                          <p class="col s12 m3 ">
+                            <input name="servicio" type="radio" id="quincenal" />
+                            <label for="quincenal">Quincenal</label>
+                          </p>
+                          <p class="col s12 m3 ">
+                            <input name="servicio" type="radio" id="21dias" />
+                            <label for="21dias">Cada 21 días</label>
+                          </p>
+                          <p class="col s12 m3 ">
+                            <input name="servicio" type="radio" id="mensual" />
+                            <label for="mensual">Mensual</label>
+                          </p>
+                        </form>
+                  </div>
+              </div>
+              <div class="elemento-servicio col s12 m6 container">
+                  <div class="input-field col s12">
+                    <select multiple>
+                      <option value="" disabled selected>¿Qué días?</option>
+                      <option value="1">Lunes</option>
+                      <option value="2">Martes</option>
+                      <option value="3">Miércoles</option>
+                      <option value="4">Jueves</option>
+                      <option value="5">Viernes</option>
+                      <option value="6">Sábado</option>
+                      <option value="7">Domingo</option>
+                    </select>
+                    <label>Días de la semana</label>
+                  </div>
+              </div>
+              <div id="calendario-servicio" class="row offset-m1">
+                <label for="hora-servicio" data-error="No puedes dejar este campo vacío">Cuando empezamos?</label>
+                <div class="input-field col s12 m6">
+                  <input id="hora-servicio" type="date" required>
+                </div>
+              </div>
+
+              <div class="row">
+                <span class="col s12 m12">¿Dónde va a ser?</span>
+                <div class="input-field col s12 m6">
+                  <input id="email_registro" type="email" class="form-control validate" ng-model="$ctrl.email" required>
+                  <label for="nombre-registro" data-error="Correo inválido">calle</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <input id="email_registro" type="email" class="form-control validate" ng-model="$ctrl.email" required>
+                  <label for="nombre-registro" data-error="Correo inválido">Número</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <input id="email_registro" type="email" class="form-control validate" ng-model="$ctrl.email" required>
+                  <label for="nombre-registro" data-error="Correo inválido">Colonia</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <input id="email_registro" type="email" class="form-control validate" ng-model="$ctrl.email" required>
+                  <label for="nombre-registro" data-error="Correo inválido">Código postal</label>
+                </div>
+                <div class="container center">
+                <button class="btn waves-effect waves-light offset-m2" type="submit" ng-disabled="asddatos.$invalid" ng-click="$ctrl.deleteDatos()" name="action">Pedir Servicio
+                </button>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

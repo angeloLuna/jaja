@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EJEMPLO</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="myapp">
+
+
+<div ng-controller="myController as vm">
+  <input type="time"
+         ng-model="vm.mytime"
+         placeholder="HH:mm:ss"
+         min="08:00:00"
+         max="22:00:00"
+  >
+
+  {{vm.mytime}}
+
+  </div>
+  <br/>
+
+  <div ng-init="data=5">{{data}}, <button ng-click="data=data+1">Chage</button></div>
+
+  <ejemplo personaje="data" ></ejemplo>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ejemplo2></ejemplo2>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
+
+  <script>
+
+    var ejemplo ={
+      template : `
+      Mi número es : {{$ctrl.memory.suma}}
+      <button ng-click="$ctrl.suma()">suma número</button>
+      <button ng-click="$ctrl.obtenerpersonaje()">obtener personaje</button>
+      <br><br>{{$ctrl.memory}}`,
+      controller : ejemploCtrl,
+      bindings: {
+        personaje : '='
+      }
+    };
+
+    var ejemplo2 ={
+      template : `
+      El número que están sumando es: {{$ctrl.memory.suma}}
+      <br><br>
+
+      <div ng-if="$ctrl.memory.personaje">
+        <h1>{{$ctrl.memory.personaje.name}}</h1>
+      </div>
+      <br><br>{{$ctrl.memory}}`,
+      controller : ejemplo2Ctrl
+    };
+
+    angular
+      .module("myapp",["ngResource"])
+      .controller("myController" ,myController)
+      .factory("mifactory",  mifactory)
+      .service("miservicio", servicio)
+      .component("ejemplo", ejemplo)
+      .component("ejemplo2", ejemplo2);
+
+
+
+    function  myController(){
+      this.mytime =new Date();
+      console.log(this.mytime)
+    }
+
+
+    ejemploCtrl.$inject = ['miservicio'];
+    function ejemploCtrl(miservicio){
+      this.$onInit = onInit;
+      this.suma = suma;
+      this.obtenerpersonaje = obtenerpersonaje;
+
+      function obtenerpersonaje(){
+        miservicio.getDataStarWars(1);
+      }
+
+      function suma(){
+        miservicio.sumaNumero();
+      }
+
+      function onInit(){
+        console.log("LLAMANDO POR DEFAULT EL ID DEL PERSONAJE , ",this.personaje);
+        miservicio.getDataStarWars(this.personaje);
+
+
+
+        this.memory = miservicio;
+      }
+    }
+
+    ejemplo2Ctrl.$inject = ['miservicio'];
+    function ejemplo2Ctrl(miservicio){
+      this.$onInit = onInit;
+
+      function onInit(){
+        this.memory = miservicio;
+      }
+    }
+
+
+    function mifactory($resource){
+      return $resource("http://swapi.co/api/people/:id",{},{});
+    }
+
+
+    servicio.$inject = ["mifactory"];
+
+    function servicio(mifactory){
+
+      return {
+        suma : 0,
+        personaje : null,
+        sumaNumero : sumaNumero,
+        getDataStarWars : getDataStarWars
+      }
+
+      function sumaNumero(){
+        this.suma +=1;
+      }
+
+      function getDataStarWars(number){
+//        this.personaje =  mifactory.get({'id': number});
+
+//        mifactory.get( ) // ---> [] , {}
+
+        var v = [{a:1} , {a:2},{a:3}];
+        angular.forEach ( v , function(val){
+          console.log(val.a);
+        });
+
+
+        var vm = this;
+        mifactory.get({id: number}).$promise.then(
+          function(data){
+            vm.personaje = data;
+            vm.personaje.valormagico = parseInt(vm.personaje.height)*10;
+            vm.personaje.height = vm.personaje.height+" cm";
+          }
+
+        )
+
+
+      }
+
+
+    }
+
+
+
+
+  </script>
+
+</body>
+</html>
