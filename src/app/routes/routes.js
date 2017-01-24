@@ -2,7 +2,7 @@
     'use strict'
 
     angular
-        .module('jelpMi')
+        .module('jelpMiAdmin')
         .config(config)
         .factory("Auth", ["$firebaseAuth",
           function($firebaseAuth) {
@@ -27,6 +27,7 @@
               auth.$onAuthStateChanged(function(user){
                 console.info("iniciando")
                 if(user){
+                  console.log(user)
                   //auth_info.info = {}
                   //auth_info.info.email = user.email;
                 }else{
@@ -58,9 +59,16 @@
 
         $routeProvider
             .when('/',{
-                template:'<home-jelp></home-jelp>',
+                template:'<usuarios-jelp></usuarios-jelp>',
                 auth : true,
-                resolve: {user: resolveUser}
+              resolve: {
+                // controller will not be loaded until $waitForSignIn resolves
+                // Auth refers to our $firebaseAuth wrapper in the factory below
+                "currentAuth": ["Auth", function(Auth) {
+                  // $waitForSignIn returns a promise so the resolve waits for it to complete
+                  return Auth.$waitForSignIn();
+                }]
+              }
             })
             .when('/login',{
                 template:'<log-in></log-in>',
@@ -91,8 +99,8 @@
                 }]
               }
             })
-            .when('/registro',{
-                template:'<registro-jelp></registro-jelp>',
+            .when('/login',{
+                template:'<login-jelp></login-jelp>',
                 auth : false,
                 onlyanonymous : true,
             })

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="jelpMi">
+<html lang="es" ng-app="jelpMiAdmin">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -12,16 +12,12 @@
     <!--<base href="/">-->
 </head>
 <body>
-    <header>
+    <aside>
         <nav-bar></nav-bar>
-    </header>
+    </aside>
     <main>
       <ng-view></ng-view>
     </main>
-
-    <footer>
-        <custom-footer></custom-footer>
-    </footer>
 
     <script src="modules/modules.js"></script>
     <!-- Materialize -->
@@ -31,36 +27,26 @@
     <script src="app/app.js"></script>
     <script src="app/services/auth.js"></script>
     <script src="app/routes/routes.js"></script>
-    <script src="app/factory/firebaseDataService.js"></script>
-    <script src="app/factory/datosService.js"></script>
-    <script src="app/factory/personalesService.js"></script>
-    <script src="app/services/profileService.js"></script>
-    <!-- Componentes -->
-    <script src="app/components/navbar/navbar.js"></script>
-    <script src="app/components/footer/footer.js"></script>
+
+    <!--Componentes-->
+    <script src="app/components/navbar/navBar.js"></script>
     <script src="app/components/login/login.js"></script>
-    <script src="app/components/home/home.js"></script>
-    <script src="app/components/agendado/agendado.js"></script>
-    <script src="app/components/registro/registro.js"></script>
-    <script src="app/components/datos/datos.js"></script>
-    <script src="app/components/express/express.js"></script>
-    <script src="app/components/datos_servicio/datosServicio.js"></script>
-    <script src="app/components/promociones/promo.js"></script>
+    <script src="app/components/usuarios/usuarios.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <!--Stripe-->
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript">
-    Stripe.setPublishableKey('pk_live_7RCBDSZnnZsNUyAfGheKxy5A');
+    Stripe.setPublishableKey('pk_WNHwXkvoGS6Ix3MMcUkTAocP1eI8N');
     </script>
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyABtzaCXLhzywIDuqS1uq7uVdG__QUa62g",
-        authDomain: "jelpmi-6788c.firebaseapp.com",
-        databaseURL: "https://jelpmi-6788c.firebaseio.com",
-        storageBucket: "jelpmi-6788c.appspot.com",
-        messagingSenderId: "929552400288"
+        apiKey: "AIzaSyABeo7ue8sziCxEP5pLLwusVaq-VSlNnTM",
+        authDomain: "jelpmi-produccion.firebaseapp.com",
+        databaseURL: "https://jelpmi-produccion.firebaseio.com",
+        storageBucket: "jelpmi-produccion.appspot.com",
+        messagingSenderId: "154696352001"
       };
       firebase.initializeApp(config);
     </script>

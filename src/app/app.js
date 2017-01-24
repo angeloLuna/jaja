@@ -1,7 +1,7 @@
 (function(){
     'use strict'
 
-    var app = angular.module("jelpMi", ["ngRoute", "firebase"]);
+    var app = angular.module("jelpMiAdmin", ["ngRoute", "firebase"]);
 })();
 
 

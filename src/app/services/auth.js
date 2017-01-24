@@ -1,6 +1,6 @@
 (function(){
   angular
-  .module("jelpMi")
+  .module("jelpMiAdmin")
   // .service("authjelpmi", authjelpmi)
   .service("authfire",authfire)
 

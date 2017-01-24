@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="jelpMi">
+<html lang="es" ng-app="jelpMiAdmin">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -12,9 +12,9 @@
     <!--<base href="/">-->
 </head>
 <body>
-    <header>
+    <aside>
         <nav-bar></nav-bar>
-    </header>
+    </aside>
     <main>
       <ng-view></ng-view>
     </main>
@@ -27,6 +27,11 @@
     <script src="app/app.js"></script>
     <script src="app/services/auth.js"></script>
     <script src="app/routes/routes.js"></script>
+
+    <!--Componentes-->
+    <script src="app/components/navbar/navBar.js"></script>
+    <script src="app/components/login/login.js"></script>
+    <script src="app/components/usuarios/usuarios.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
     <!--Stripe-->
